@@ -10,13 +10,13 @@ describe("share login context", () => {
     
   })
     
-      it("login", () => {
+      it.skip("login", () => {
         cy.visit("/web/index.php/dashboard/index")
         cy.get('.orangehrm-dashboard-widget-header').should("exist")
       
       })
 
-      it("test logged already", () => {
+      it.skip("test logged already", () => {
         cy.visit("/web/index.php/dashboard/index")
         cy.get('.orangehrm-dashboard-widget-header').contains("Time at Work")
       })

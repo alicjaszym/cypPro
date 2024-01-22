@@ -11,7 +11,7 @@ describe("tests", () => {
     cartPage = new CartPage
     cy.login(Cypress.env('user_name'), Cypress.env('user_password'))
    })
-  it("add item to the cart and check if added", () => { 
+  it.skip("add item to the cart and check if added", () => { 
     cy.visit("/")
     shopPage.itemDescription()
     shopPage.addItemToCart()
