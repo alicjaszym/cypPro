@@ -9,7 +9,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: npm run build
           start: npm run test
     env:
       # pass GitHub token to detect new build vs re-run build
