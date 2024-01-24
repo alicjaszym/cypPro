@@ -31,7 +31,7 @@ declare namespace Cypress {
 Cypress.Commands.add('login', (username: string, password: string) => {
   cy.session(`session created for ${username}`, () => {
       cy.intercept("**/web/index.php/api/v2/dashboard/employees/subunit").as('logged')
-      cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+      cy.visit("/web/index.php/auth/login")
       cy.get("[name='username']").clear().type(username)
       cy.get("[name='password']").clear().type(password)
       cy.get("[type='submit']").click()

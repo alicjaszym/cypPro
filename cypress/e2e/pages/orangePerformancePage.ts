@@ -1,5 +1,5 @@
 import { orangeLocators } from "../locators/orangeLocators"
-
+import {common} from "../locators/commonLocators"
 export class OrangePerformancePage{
 
 
@@ -26,21 +26,9 @@ export class OrangePerformancePage{
     })
   }
 
-  dataFillCurrentDay() {
-    const today = new Date()
-    const dayOfMonth = today.getDate()
-    cy.get(orangeLocators.dateInput).first().click()
-    cy.get(orangeLocators.calendarDay).each(item => {
-      if (item.text() == dayOfMonth.toString()) { 
-        cy.wrap(item).click()
-        return false
-      } 
-    })
-  }
-
   submit() {
     cy.intercept('**/api/v2/performance/employees/reviews?limit=**').as('searchResults')
-    cy.get(orangeLocators.submitBtn).click()
+    cy.get(common.submitBtn).click()
     cy.wait('@searchResults').then(res => {
       cy.log(res.response?.body)
     })
